@@ -1,0 +1,4 @@
+Z - Hold to walk
+X - Jump forward
+C - Slash attack
+V - Moonwalk
