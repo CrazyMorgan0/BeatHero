@@ -1,0 +1,44 @@
+
+newmtl Standard000C3C
+Kd  0 0.04705882 0.2352941
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Flat818489
+Kd  0.5058824 0.5176471 0.5372549
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 0
+
+
+
+
+newmtl CartoonFFBB00
+Kd  1 0.7333333 0
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
+
+newmtl Standard000000
+Kd  0 0 0
+Ks  0 0 0
+Ka  0 0 0
+d  1
+Ns  0
+illum 2
+
+
+
