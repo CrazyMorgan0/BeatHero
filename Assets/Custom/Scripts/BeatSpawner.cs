@@ -10,21 +10,11 @@ public class BeatSpawner : MonoBehaviour
     //List of spawn points
     private List<Transform> spawnPoints = new List<Transform>();
 
-    //The songs BPM
-    public float beatsPerMinute = 0;
+    //Plays the song and tracks the song position
+    public SoundManager soundManager;
 
     //The ratio of player beats compared to song beats 
-    int beatInterval = 4;
-
-    //Timer the beat spawning is based on
-    private float timer;
-
-    void Start() {
-        GameObject[] spawnObjects = GameObject.FindGameObjectsWithTag("Spawn");
-        foreach(GameObject spawnObject in spawnObjects) {
-            spawnPoints.Add(spawnObject.transform);
-        }
-    }
+    private float beatInterval = 0.0f;
 
     //Spawns a beat at a spawn point
     void SpawnBeat() {
@@ -32,17 +22,23 @@ public class BeatSpawner : MonoBehaviour
         Instantiate(beats[Random.Range(0, beats.Length)], spawnPoints[Random.Range(0, spawnPoints.Count)]);
     }
 
-    // Update is called once per frame
+    //Collect all spawnpoints
+    void Start() {
+        GameObject[] spawnObjects = GameObject.FindGameObjectsWithTag("Spawn");
+        foreach(GameObject spawnObject in spawnObjects) {
+            spawnPoints.Add(spawnObject.transform);
+        }
+    }
+
+    //Check if it's time to spawn a beat
     void Update()
     {
-        float secondsPerBeat = 60 / beatsPerMinute;
-        if(timer > secondsPerBeat * beatInterval)
+        //Spawns a beat every beat interval
+        if(soundManager.positionInBeats >= beatInterval)
         {
             SpawnBeat();
-            //Reset timer
-            timer -= secondsPerBeat * beatInterval;
+            //Update the interval for the next beat
+            beatInterval += 4.0f;
         }
-        //Increment timer
-        timer += Time.deltaTime;
     }
 }
