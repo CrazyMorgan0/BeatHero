@@ -9,6 +9,7 @@ public class BeatSpawner : MonoBehaviour
 
     //List of spawn points
     private List<Transform> spawnPoints = new List<Transform>();
+    
 
     //Plays the song and tracks the song position
     public SoundManager soundManager;
@@ -17,7 +18,7 @@ public class BeatSpawner : MonoBehaviour
     private float beatInterval = 0.0f;
 
     //Spawns a beat at a spawn point
-    void SpawnBeat() {
+    public void SpawnBeat() {
         //TODO Currently spawns a random beat at a random spawn point, not very fun
         Instantiate(beats[Random.Range(0, beats.Length)], spawnPoints[Random.Range(0, spawnPoints.Count)]);
     }
@@ -28,6 +29,7 @@ public class BeatSpawner : MonoBehaviour
         foreach(GameObject spawnObject in spawnObjects) {
             spawnPoints.Add(spawnObject.transform);
         }
+        SpawnBeat();
     }
 
     //Check if it's time to spawn a beat
@@ -38,7 +40,7 @@ public class BeatSpawner : MonoBehaviour
         {
             SpawnBeat();
             //Update the interval for the next beat
-            beatInterval += 4.0f;
+            beatInterval += 8.0f;
         }
     }
 }

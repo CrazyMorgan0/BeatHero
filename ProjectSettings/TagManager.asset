@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Box
   - Spawn
+  - Target
+  - Text
+  - Track
   layers:
   - Default
   - TransparentFX

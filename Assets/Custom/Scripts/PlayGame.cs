@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayGame : MonoBehaviour
 {
-    public SoundManager soundManager;
+    public BeatSpawner beatSpawner;
+    public GameObject pointsObject;
 
     public void StartGame() {
-        soundManager.PlayMusic();
+        beatSpawner.soundManager.PlayMusic();
     }
 
+    public void EnableText(bool enable) {
+        pointsObject.SetActive(enable);
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-    
+        EnableText(false);
+        beatSpawner.SpawnBeat();
     }
 
     // Update is called once per frame
