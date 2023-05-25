@@ -9,6 +9,7 @@ TagManager:
   - Target
   - Text
   - Track
+  - Spawner
   layers:
   - Default
   - TransparentFX

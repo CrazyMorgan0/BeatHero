@@ -14,13 +14,22 @@ public class BeatSpawner : MonoBehaviour
     [SerializeField]
     private Transform bottomPoint;
 
+    public GameObject pointsObject;
+
     private int beatCount;
 
     public void SpawnBar() {
         Instantiate(beats[1], midPoint);
         Instantiate(beats[2], bottomPoint);
     }
-    
+
+    public void StartGame() {
+        soundManager.PlayMusic();
+    }
+
+    public void EnableText(bool enable) {
+        pointsObject.SetActive(enable);
+    }
 
     //Plays the song and tracks the song position
     public SoundManager soundManager;
@@ -35,6 +44,7 @@ public class BeatSpawner : MonoBehaviour
 
     //Collect all spawnpoints and unpack lists
     void Start() {
+        EnableText(false);
         GameObject[] spawnObjects = GameObject.FindGameObjectsWithTag("Spawn");
         foreach(GameObject spawnObject in spawnObjects) {
             spawnPoints.Add(spawnObject.transform);
@@ -45,7 +55,7 @@ public class BeatSpawner : MonoBehaviour
     void Update()
     {
         //Spawns a beat every beat interval
-        if(soundManager.positionInBeats >= beatInterval)
+        if(soundManager.positionInBeats > beatInterval)
         {
             //Spawn a bar instead of a beat every 8 beats 
             if(beatCount < 8) {
