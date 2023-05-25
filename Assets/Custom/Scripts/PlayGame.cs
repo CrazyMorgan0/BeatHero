@@ -19,7 +19,8 @@ public class PlayGame : MonoBehaviour
     void Start()
     {
         EnableText(false);
-        beatSpawner.SpawnBeat();
+        //beatSpawner.SpawnBeat();
+        StartGame();
     }
 
     // Update is called once per frame

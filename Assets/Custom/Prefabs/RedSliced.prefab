@@ -81,11 +81,11 @@ MonoBehaviour:
   currentlySliceable: 1
   refreshColliders: 1
   infillers:
-  - material: {fileID: 2100000, guid: f91fb8b23d52a5043a6d357f42ee025b, type: 2}
+  - material: {fileID: 2100000, guid: c9b440c79cf904d43b47ddfe6fdc9e4f, type: 2}
     regionForInfill:
       serializedVersion: 2
-      x: 1
-      y: 1
+      x: 0
+      y: 0
       width: 1
       height: 1
   channelNormals: 1
@@ -194,7 +194,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f91fb8b23d52a5043a6d357f42ee025b, type: 2}
+  - {fileID: 2100000, guid: c9b440c79cf904d43b47ddfe6fdc9e4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -7,7 +7,7 @@ public class Beat : MonoBehaviour
     //Speed the beat comes to the player
     [SerializeField]
     float speed = 2.0f;
-    bool pause = true;
+    public bool pause = true;
 
     //Give the player time to hit the cube
     IEnumerator WaitForPlayer() {

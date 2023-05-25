@@ -20,7 +20,7 @@ public class DoublePoints : MonoBehaviour
             Animator trackAnimator = track.GetComponent<Animator>();
             trackAnimator.SetBool("doublePoints", true);
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         playScript.EnableText(false);
         RenderSettings.fogColor = magenta;
         foreach(GameObject track in tracks) {
