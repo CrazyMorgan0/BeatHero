@@ -9,6 +9,20 @@ public class Beat : MonoBehaviour
     float speed = 2.0f;
     public bool pause = true;
 
+    public void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "Saber") {
+            if(this.gameObject.name == "BlueBeat" || this.gameObject.name == "BlueSliced") {
+                
+            } else if(this.gameObject.name == "DoubleBeat") {
+                
+            } else if(this.gameObject.name == "DoubleSliced") {
+
+            } else if(this.gameObject.name == "BarBeat") {
+
+            } 
+        }
+    }
+
     //Give the player time to hit the cube
     IEnumerator WaitForPlayer() {
         yield return new WaitForSeconds(2f);

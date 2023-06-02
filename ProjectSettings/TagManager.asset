@@ -10,6 +10,7 @@ TagManager:
   - Text
   - Track
   - Spawner
+  - Saber
   layers:
   - Default
   - TransparentFX
