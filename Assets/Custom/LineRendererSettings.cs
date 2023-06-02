@@ -9,6 +9,9 @@ public class LineRendererSettings : MonoBehaviour
     [SerializeField]
     LineRenderer rend;
 
+    public GameObject introCutscene;
+    private IntroBeats introScript;
+
     public GameObject panel;
     private Image img;
     private Button button;
@@ -42,8 +45,8 @@ public class LineRendererSettings : MonoBehaviour
     public void OnButtonClick() {
         if(button != null) {
             switch(button.name) {
-                case "RedButton":
-                    img.color = Color.red;
+                case "PlayButton":
+                    introScript.StartTimeline();
                     break;
                 case "GreenButton":
                     img.color = Color.green;
@@ -56,6 +59,7 @@ public class LineRendererSettings : MonoBehaviour
     }
 
     void Start() {
+        introScript = introCutscene.GetComponent<IntroBeats>();
         img = panel.GetComponent<Image>();
         rend = gameObject.GetComponent<LineRenderer>();
         points = new Vector3[2];
