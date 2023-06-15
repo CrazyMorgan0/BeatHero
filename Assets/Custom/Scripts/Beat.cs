@@ -8,24 +8,9 @@ public class Beat : MonoBehaviour
     [SerializeField]
     float speed = 2.0f;
     public bool pause = true;
-
-    public void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "Saber") {
-            if(this.gameObject.name == "BlueBeat" || this.gameObject.name == "BlueSliced") {
-                
-            } else if(this.gameObject.name == "DoubleBeat") {
-                
-            } else if(this.gameObject.name == "DoubleSliced") {
-
-            } else if(this.gameObject.name == "BarBeat") {
-
-            } 
-        }
-    }
-
-    //Give the player time to hit the cube
+    
     IEnumerator WaitForPlayer() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.0f);
         pause = false;
     }
 
@@ -37,6 +22,7 @@ public class Beat : MonoBehaviour
             transform.position += Time.deltaTime * transform.forward * speed;
         } else if (pause) {
             StartCoroutine(WaitForPlayer());
+            
         } else {
             //Cube hasn't been sliced, continue to killzone
             transform.position += Time.deltaTime * transform.forward * speed;

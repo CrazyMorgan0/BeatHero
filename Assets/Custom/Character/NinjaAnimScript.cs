@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class NinjaAnimScript : MonoBehaviour
 {
-	public Animator anim;
+	public Animator ninjaAnimator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.Z)) {
-		anim.SetBool("isWalking", true);
-	} else {
-		anim.SetBool("isWalking", false);
+	IEnumerator CrouchAndStand() {
+		ninjaAnimator.SetBool("isWalking", true);
+		yield return new WaitForSeconds(1f);
+		ninjaAnimator.SetBool("isWalking", true);
 	}
-        if(Input.GetKey(KeyCode.X)) {
-		anim.SetBool("isJumping", true);
-	} else {
-		anim.SetBool("isJumping", false);
+	public void Crouch() {
+		StartCoroutine(CrouchAndStand());
 	}
-        if(Input.GetKey(KeyCode.C)) {
-		anim.SetBool("isAttacking", true);
-	} else {
-		anim.SetBool("isAttacking", false);
+
+	IEnumerator Dance() {
+		ninjaAnimator.SetBool("isDancing", true);
+		yield return new WaitForSeconds(1f);
+		ninjaAnimator.SetBool("isWalking", true);
 	}
-        if(Input.GetKey(KeyCode.V)) {
-		anim.SetBool("isDancing", true);
-	} else {
-		anim.SetBool("isDancing", false);
+	public void VictoryWalk() {
+		StartCoroutine(Dance());
 	}
-    }
+	
+	IEnumerator Attack() {
+		ninjaAnimator.SetBool("isAttacking", true);
+		yield return new WaitForSeconds(.2f);
+		ninjaAnimator.SetBool("isAttacking", true);
+	}
+	public void Slash() {
+		StartCoroutine(Attack());
+	}
 }

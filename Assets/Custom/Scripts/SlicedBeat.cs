@@ -20,6 +20,6 @@ public class SlicedBeat : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         StartCoroutine(WaitForPlayer());
         //Cull sliced cubes to avoid frame drops
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 15f);
     }
 }

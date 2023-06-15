@@ -6,7 +6,6 @@ using TMPro;
 
 public class DoublePoints : MonoBehaviour
 {
-    private BeatSpawner spawnScript;
     private ScoreTracker scoreScript;
     private GameObject[] tracks;
     
@@ -15,7 +14,6 @@ public class DoublePoints : MonoBehaviour
 
     IEnumerator DoublePointsMode() {
         scoreScript.SetDoublePoints(true);
-        spawnScript.EnableText(true);
         RenderSettings.fogColor = lightGreen;
         foreach(GameObject track in tracks) {
             Animator trackAnimator = track.GetComponent<Animator>();
@@ -23,7 +21,6 @@ public class DoublePoints : MonoBehaviour
         }
         yield return new WaitForSeconds(10f);
         scoreScript.SetDoublePoints(false);
-        spawnScript.EnableText(false);
         RenderSettings.fogColor = magenta;
         foreach(GameObject track in tracks) {
             Animator trackAnimator = track.GetComponent<Animator>();
@@ -31,15 +28,11 @@ public class DoublePoints : MonoBehaviour
         }
     }
 
-    public void ActivateDoublePoints() {
-        StartCoroutine(DoublePointsMode());
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         tracks = GameObject.FindGameObjectsWithTag("Track");
-        spawnScript = GameObject.FindWithTag("Spawner").GetComponent<BeatSpawner>();
         scoreScript = GameObject.FindWithTag("Player").GetComponent<ScoreTracker>();
+        StartCoroutine(DoublePointsMode());
     }
 }

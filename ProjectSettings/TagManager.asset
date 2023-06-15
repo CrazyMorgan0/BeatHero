@@ -11,6 +11,7 @@ TagManager:
   - Track
   - Spawner
   - Saber
+  - Ninja
   layers:
   - Default
   - TransparentFX

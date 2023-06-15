@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 6116686290175577722}
   - component: {fileID: 8618869278410080352}
   - component: {fileID: 1401811938837751269}
+  - component: {fileID: 5051494354428935679}
   m_Layer: 0
   m_Name: BarBeat
   m_TagString: Target
@@ -218,3 +219,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   pause: 0
+--- !u!114 &5051494354428935679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053791534578748469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320be91c9a42baf42a2e83552d615f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: -300

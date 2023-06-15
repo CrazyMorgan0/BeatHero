@@ -6,7 +6,8 @@ using UnityEngine.Playables;
 public class IntroBeats : MonoBehaviour
 {
     private PlayableDirector director;
-    public GameObject controlPanel;
+    public GameObject player;
+    private ToggleMenu menuScript;
     [SerializeField]
     private BeatSpawner beatSpawner;
 
@@ -19,20 +20,21 @@ public class IntroBeats : MonoBehaviour
     }
 
     private void Director_Played(PlayableDirector obj) {
-        controlPanel.SetActive(false);
+        menuScript.HideMenu();
     }
 
     private void Director_Stopped(PlayableDirector obj) {
-        controlPanel.SetActive(true);
+        menuScript.ShowMenu();
     }
-
+    
     public void StartTimeline() {
         director.Play();
     }
 
     public void Awake() {
+        menuScript = player.GetComponent<ToggleMenu>();
         director = GetComponent<PlayableDirector>();
         director.played += Director_Played;
-//        director.stopped += Director_Stopped;
+        director.stopped += Director_Stopped;
     }
 }

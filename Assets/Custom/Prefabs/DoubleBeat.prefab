@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8302109077779189029}
   - component: {fileID: -3438060658014239937}
   - component: {fileID: -5430798585716627782}
+  - component: {fileID: 6370581091324861645}
   m_Layer: 0
   m_Name: DoubleBeat
   m_TagString: Target
@@ -134,6 +135,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  pause: 1
+--- !u!114 &6370581091324861645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953215459123234472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320be91c9a42baf42a2e83552d615f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 200
 --- !u!1 &8983542983000420164
 GameObject:
   m_ObjectHideFlags: 0

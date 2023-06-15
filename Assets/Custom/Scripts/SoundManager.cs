@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    private GameObject player;
+    private ToggleMenu menuScript;
     private AudioSource audioSource;
+    private GameObject ninja;
+    private NinjaAnimScript ninjaAnimator;
+
+    private bool playing = false;
 
     //Music clip for the game
     [SerializeField]
@@ -24,29 +30,46 @@ public class SoundManager : MonoBehaviour
     private float secsPerBeat;
     
     //Track current position of song in beats
-    private float positionInSecs;
+    private float positionInSecs = 0;
 
     //Time when music starts playing
-    private float dspSongTime;
+    private float dspSongTime = 0;
 
     //Plays the music for the game
     public void PlayMusic()
     {
-        audioSource.PlayOneShot(music);    
+        menuScript.HideMenu();
+        playing = true;
+        audioSource.PlayOneShot(music);
+        dspSongTime = (float)AudioSettings.dspTime;  
+    }
+
+    public void PlayBeatSound(AudioClip[] sounds) {
+        audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count())]);
+    }
+    
+    public void PlayBeatSound(AudioClip sound) {
+        audioSource.PlayOneShot(sound);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        ninja = GameObject.FindWithTag("Ninja");
+        ninjaAnimator = ninja.GetComponent<NinjaAnimScript>();
+        menuScript = player.GetComponent<ToggleMenu>();
         audioSource = GetComponent<AudioSource>();
         secsPerBeat = 60f / BPM;
-        //Record time when the music starts
-        dspSongTime = (float)AudioSettings.dspTime;
     }
 
     //Refresh position variables by checking how long the song has been playing
     void Update() {
-        positionInSecs = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
-        positionInBeats = positionInSecs / secsPerBeat;
+        if(playing) {
+            positionInSecs = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
+            positionInBeats = positionInSecs / secsPerBeat;
+        } if(positionInSecs >= 160) {
+            playing = false;
+            menuScript.ShowMenu();
+        }
     }
 }

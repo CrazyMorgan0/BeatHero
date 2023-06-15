@@ -10,32 +10,29 @@ public class BeatSpawner : MonoBehaviour
     //List of spawn points
     private List<Transform> spawnPoints = new List<Transform>();
     [SerializeField]
-    private Transform midPoint;
+    private Transform barPoint;
     [SerializeField]
     private Transform bottomPoint;
-
-    public GameObject pointsObject;
+    private GameObject ninja;
+    private NinjaAnimScript ninjaAnimator;
 
     private int beatCount;
-
-    public void SpawnBar() {
-        Instantiate(beats[1], midPoint);
-        Instantiate(beats[2], bottomPoint);
-    }
-
-    public void StartGame() {
-        soundManager.PlayMusic();
-    }
-
-    public void EnableText(bool enable) {
-        pointsObject.SetActive(enable);
-    }
 
     //Plays the song and tracks the song position
     public SoundManager soundManager;
 
     //The ratio of player beats compared to song beats 
     private float beatInterval = 0.0f;
+
+    public void SpawnBar() {
+        ninjaAnimator.Crouch();
+        Instantiate(beats[1], barPoint);
+        Instantiate(beats[2], bottomPoint);
+    }
+
+    public void StartGame() {
+        soundManager.PlayMusic();
+    }
 
     //Spawns a beat at a spawn point
     public void SpawnBeat() {
@@ -44,7 +41,8 @@ public class BeatSpawner : MonoBehaviour
 
     //Collect all spawnpoints and unpack lists
     void Start() {
-        EnableText(false);
+        ninja = GameObject.FindWithTag("Ninja");
+        ninjaAnimator = ninja.GetComponent<NinjaAnimScript>();
         GameObject[] spawnObjects = GameObject.FindGameObjectsWithTag("Spawn");
         foreach(GameObject spawnObject in spawnObjects) {
             spawnPoints.Add(spawnObject.transform);
@@ -58,7 +56,7 @@ public class BeatSpawner : MonoBehaviour
         if(soundManager.positionInBeats > beatInterval)
         {
             //Spawn a bar instead of a beat every 8 beats 
-            if(beatCount < 8) {
+            if(beatCount < 7) {
                 SpawnBeat();
                 beatCount++;
             } else {
@@ -66,7 +64,7 @@ public class BeatSpawner : MonoBehaviour
                 beatCount = 0;
             }
             //Update the interval for the next beat
-            beatInterval += 8.0f;
+            beatInterval += 4.0f;
         }
     }
 }
