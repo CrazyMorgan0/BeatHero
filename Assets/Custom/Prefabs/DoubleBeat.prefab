@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320be91c9a42baf42a2e83552d615f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatSound:
+  - {fileID: 8300000, guid: 304ec64462f0e3a438fb4ac2301d1677, type: 3}
   score: 200
 --- !u!1 &8983542983000420164
 GameObject:

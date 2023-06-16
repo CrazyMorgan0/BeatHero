@@ -10,7 +10,7 @@ public class Beat : MonoBehaviour
     public bool pause = true;
     
     IEnumerator WaitForPlayer() {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         pause = false;
     }
 
@@ -22,7 +22,6 @@ public class Beat : MonoBehaviour
             transform.position += Time.deltaTime * transform.forward * speed;
         } else if (pause) {
             StartCoroutine(WaitForPlayer());
-            
         } else {
             //Cube hasn't been sliced, continue to killzone
             transform.position += Time.deltaTime * transform.forward * speed;

@@ -32,6 +32,7 @@ public class IntroBeats : MonoBehaviour
     }
 
     public void Awake() {
+        player = GameObject.FindWithTag("Player");
         menuScript = player.GetComponent<ToggleMenu>();
         director = GetComponent<PlayableDirector>();
         director.played += Director_Played;

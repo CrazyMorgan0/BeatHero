@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8397832443658694152}
   - component: {fileID: -3438060658014239937}
   - component: {fileID: -5251725803670398943}
+  - component: {fileID: -5439784665855211266}
   m_Layer: 0
   m_Name: DoubleSliced
   m_TagString: Target
@@ -215,4 +216,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320be91c9a42baf42a2e83552d615f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatSound:
+  - {fileID: 8300000, guid: 1a7e01d5b32d2184b80f676c1e5cca51, type: 3}
+  - {fileID: 8300000, guid: dda6754e48cb832439c278e9b6040ed1, type: 3}
   score: 50
+--- !u!114 &-5439784665855211266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5369433056669555094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a0067ab394c804392ab12f971cb09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

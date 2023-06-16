@@ -44,17 +44,14 @@ public class SoundManager : MonoBehaviour
         dspSongTime = (float)AudioSettings.dspTime;  
     }
 
-    public void PlayBeatSound(AudioClip[] sounds) {
-        audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count())]);
-    }
-    
-    public void PlayBeatSound(AudioClip sound) {
-        audioSource.PlayOneShot(sound);
+    public void PlayBeatSound(List<AudioClip> sounds) {
+        audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count)]);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         ninja = GameObject.FindWithTag("Ninja");
         ninjaAnimator = ninja.GetComponent<NinjaAnimScript>();
         menuScript = player.GetComponent<ToggleMenu>();

@@ -9,7 +9,7 @@ public class NinjaAnimScript : MonoBehaviour
 	IEnumerator CrouchAndStand() {
 		ninjaAnimator.SetBool("isWalking", true);
 		yield return new WaitForSeconds(1f);
-		ninjaAnimator.SetBool("isWalking", true);
+		ninjaAnimator.SetBool("isWalking", false);
 	}
 	public void Crouch() {
 		StartCoroutine(CrouchAndStand());
@@ -18,7 +18,7 @@ public class NinjaAnimScript : MonoBehaviour
 	IEnumerator Dance() {
 		ninjaAnimator.SetBool("isDancing", true);
 		yield return new WaitForSeconds(1f);
-		ninjaAnimator.SetBool("isWalking", true);
+		ninjaAnimator.SetBool("isWalking", false);
 	}
 	public void VictoryWalk() {
 		StartCoroutine(Dance());
@@ -27,7 +27,7 @@ public class NinjaAnimScript : MonoBehaviour
 	IEnumerator Attack() {
 		ninjaAnimator.SetBool("isAttacking", true);
 		yield return new WaitForSeconds(.2f);
-		ninjaAnimator.SetBool("isAttacking", true);
+		ninjaAnimator.SetBool("isAttacking", false);
 	}
 	public void Slash() {
 		StartCoroutine(Attack());

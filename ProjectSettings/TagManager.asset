@@ -12,6 +12,7 @@ TagManager:
   - Spawner
   - Saber
   - Ninja
+  - SoundManager
   layers:
   - Default
   - TransparentFX

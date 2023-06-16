@@ -231,4 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320be91c9a42baf42a2e83552d615f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatSound:
+  - {fileID: 8300000, guid: 722a15c1381b2a54eb6f24f70da3ddb8, type: 3}
   score: -300

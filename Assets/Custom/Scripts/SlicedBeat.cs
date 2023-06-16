@@ -7,8 +7,7 @@ public class SlicedBeat : MonoBehaviour
     private Rigidbody rb;
 
     //Give the player time to slice the cube repeatedly
-    IEnumerator WaitForPlayer() {
-        yield return new WaitForSeconds(1f);
+    private void Fall() {
         //Slices all fall
         rb.useGravity = true;
         rb.isKinematic = false;
@@ -18,7 +17,7 @@ public class SlicedBeat : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        StartCoroutine(WaitForPlayer());
+        Fall();
         //Cull sliced cubes to avoid frame drops
         Destroy(gameObject, 15f);
     }
