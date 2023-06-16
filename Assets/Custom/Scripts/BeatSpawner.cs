@@ -56,7 +56,7 @@ public class BeatSpawner : MonoBehaviour
         if(soundManager.positionInBeats > beatInterval)
         {
             //Spawn a bar instead of a beat every 8 beats 
-            if(beatCount < 7) {
+            if(beatCount <= 7) {
                 SpawnBeat();
                 beatCount++;
             } else {
@@ -64,7 +64,7 @@ public class BeatSpawner : MonoBehaviour
                 beatCount = 0;
             }
             //Update the interval for the next beat
-            beatInterval += 4.0f;
+            beatInterval += 6.0f;
         }
     }
 }

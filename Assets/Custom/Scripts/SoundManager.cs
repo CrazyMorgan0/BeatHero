@@ -48,6 +48,10 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Count)]);
     }
 
+    IEnumerator EndScreen() {
+        yield return new WaitForSeconds(10f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +70,7 @@ public class SoundManager : MonoBehaviour
             positionInBeats = positionInSecs / secsPerBeat;
         } if(positionInSecs >= 160) {
             playing = false;
-            menuScript.ShowMenu();
+            StartCoroutine(EndScreen());
         }
     }
 }

@@ -52,9 +52,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-1437998296517861691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
   - material: {fileID: 2100000, guid: b0dfa952a9094e34781295e988f2d65c, type: 2}
     regionForInfill:
       serializedVersion: 2
-      x: 0
-      y: 0
+      x: 1
+      y: 1
       width: 1
       height: 1
   channelNormals: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b57c9e1cff2648ab592cd6f392b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   pause: 1
 --- !u!114 &6370581091324861645
 MonoBehaviour:
